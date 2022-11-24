@@ -119,7 +119,7 @@ Desenvolver um registrador dos tempos de espera dos clientes, tendo por trás um
     • void log_registrar(Log **l, int conta, int classe, int timer, int caixa);
         Inclui um registro de tempo de atendimento da conta de número “conta”, que faz parte da classe de número “classe”, que esperou “timer” minutos para ser atendido pelo caixa de número “caixa”.
 
-    •float log_media_por_classe(Log **l, int classe);
+    • float log_media_por_classe(Log **l, int classe);
         Retorna o tempo médio de espera, em minutos, para a classe de número “classe”.
     
     • int log_obter_soma_por_classe(Log **l, int classe);
@@ -159,11 +159,11 @@ Desenvolver um escalonador de filas que trata de forma diferenciada 5 filas, com
         Retorna o tempo necessário para que o próximo cliente a ser atendido realize todas as operações financeiras que deseja, sem retirá-lo da sua respectiva fila. 
         Retornar -1 caso não tenha nenhum cliente em todas as filas.
 
-    • int e_conf_por_arquivo (Escalonador \* e, char \*nome_arq_conf);
+    • int e_conf_por_arquivo (Escalonador *e, char *nome_arq_conf);
         Realiza a configuração de inicialização do escalonador através da leitura do arquivo de configuração de nome “nome_arq_conf”, 
         retornando 1 em caso de sucesso e 0 caso contrário.
 
-    • void e_rodar (Escalonador \* e, char \*nome_arq_in, char *nome_arq_out);
+    • void e_rodar (Escalonador *e, char *nome_arq_in, char *nome_arq_out);
         Executar a simulação do atendimento, lendo o arquivo de configuração de nome “nome_arq_in” e escrevendo o resultado do processamento para arquivo de nome “nome_arq_out”.
 
 **Critérios de Avaliação**
