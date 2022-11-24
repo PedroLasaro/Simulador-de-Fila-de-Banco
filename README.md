@@ -119,7 +119,7 @@ Desenvolver um registrador dos tempos de espera dos clientes, tendo por trás um
     • void log_registrar(Log **l, int conta, int classe, int timer, int caixa);
         Inclui um registro de tempo de atendimento da conta de número “conta”, que faz parte da classe de número “classe”, que esperou “timer” minutos para ser atendido pelo caixa de número “caixa”.
 
-    •float log_media_por_classe(Log **l, int classe);
+    • float log_media_por_classe(Log **l, int classe);
         Retorna o tempo médio de espera, em minutos, para a classe de número “classe”.
     
     • int log_obter_soma_por_classe(Log **l, int classe);
