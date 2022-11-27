@@ -1,7 +1,7 @@
 #ifndef fila_fifo_h
 #define fila_fifo_h
 
-#include "../Tipos/fila.h"
+#include "Tipos/fila.h"
 
 void f_inicializar(Fila_FIFO **);
 // Inicializa a fila.

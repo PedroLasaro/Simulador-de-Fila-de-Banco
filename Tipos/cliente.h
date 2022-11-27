@@ -1,12 +1,11 @@
-#ifndef cliente
-#define cliente
+#ifndef cliente_h
+#define cliente_h
 
-typedef struct Cliente
-{
-    int numeroDaConta;
-    int tipoDeConta; // 1 a 5
-    int operacoes;
-}cli;
+typedef struct Cliente {
+  int numeroDaConta;
+  int tipoDeConta;  // 1 a 5
+  int operacoes;
+} cli;
 
 /*
 1. Cliente Premium
@@ -16,5 +15,4 @@ typedef struct Cliente
 5. Cliente Leezu
 */
 
-
-#endif // !cliente
+#endif  // !cliente_h

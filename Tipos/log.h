@@ -1,9 +1,9 @@
-#ifndef log
-#define log
+#ifndef log_h
+#define log_h
 
 typedef struct _logtree {
   // Data
   // TODO
 } Log;
 
-#endif // !log
+#endif  // !log_h
