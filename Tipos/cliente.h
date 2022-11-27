@@ -5,6 +5,7 @@ typedef struct Cliente {
   int numeroDaConta;
   int tipoDeConta;  // 1 a 5
   int operacoes;
+  int dinheiro;
 } cli;
 
 /*
