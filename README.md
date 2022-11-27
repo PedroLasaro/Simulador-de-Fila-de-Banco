@@ -2,11 +2,23 @@
 
 Trabalho para a cadeira de Programação I
 
-Equipe:
+# Conteúdo
+
+&#62; [Equipe](#equipe)
+
+&#62; [Estrutura de Dados Fila FIFO](#parte-i-estrutura-de-dados-fila-fifo)
+
+&#62; [Registrador](#parte-ii-registrador)
+
+&#62; [Escalonador](#parte-iii-escalonador)
+
+&#62; [Criterio de avaliação](#critérios-de-avaliação)
+
+# Equipe
 
 Pedro Igor Azevedo Lásaro.
 
-## Descrição
+# Descrição
 
 Desenvolver um projeto em linguagem C representando um sistema de simulação de fila de banco.
 
@@ -75,7 +87,7 @@ O padrão de formatação do arquivo de entrada é fixo e deve ser seguido à ri
 
 > **DICA**: utilize a ferramenta “diff” do Linux para comparar os arquivos de saída: obtido e esperado. O comando diff, no caso, deve retornar que não há diferença entre os arquivos.
 
-## Parte I: Estrutura de Dados Fila FIFO
+# Parte I: Estrutura de Dados Fila FIFO
 
 Deverá ser desenvolvida uma estrutura de dados utilizando ponteiros e alocação dinâmica de memória (nos mesmos moldes das estruturas de dados desenvolvidas em laboratório) para uma fila com disciplina FIFO (First In, First Out), onde um elemento que chega primeiro na fila é também o primeiro elemento a ser retirado. Esta estrutura de dados deve ser desenvolvida nos arquivos fila_fifo.c e fila_fifo.h. Esta fila terá como informação a ser armazenada um valor inteiro. A chave de indexação desta informação também é uma informação inteira. Não deverá haver chaves duplicadas em uma fila. As funções dessa API não devem realizar nenhuma saída de informação na tela (printf). As seguintes funções devem ser implementadas:
 
@@ -107,11 +119,11 @@ Deverá ser desenvolvida uma estrutura de dados utilizando ponteiros e alocaçã
         Retorna o valor do posicao-ésimo elemento da fila. 
         Caso não exista a posição desejada, retornar -1. A posição se inicia em 1.
 
-## Parte II: Registrador
+# Parte II: Registrador
 
 Desenvolver um registrador dos tempos de espera dos clientes, tendo por trás uma estrutura de dados de Árvore Binária de Busca (ABB). Os arquivos a serem gerados são “logtree.c” e “logtree.h”.
 
-### As funções que deverão ser implementadas são
+## As funções que deverão ser implementadas são&#58;
 
     • void log_inicializar(Log **l);
         Inicializa o registrador l.
@@ -128,11 +140,11 @@ Desenvolver um registrador dos tempos de espera dos clientes, tendo por trás um
     • int log_obter_contagem_por_classe(Log **l, int classe);
         Retorna a quantidade de clientes atendidos cujas contas são da categoria de número “classe”.
 
-## Parte III: Escalonador
+# Parte III: Escalonador
 
 Desenvolver um escalonador de filas que trata de forma diferenciada 5 filas, com as características de disciplina citadas no enunciado no trabalho. Os arquivos no projeto para o escalonador deverão ser: “escalonador.c” e “escalonador.h”.
 
-### O escalonador deve ter as seguintes funções
+## O escalonador deve ter as seguintes funções&#58;
 
     • void e_inicializar (Escalonador *e, int caixas, int delta_t, int n_1, int n_2, int n_3, int n_4, int n_5); 
         Inicializa o escalonador, alocando e inicializando as 5 filas, que serão atendidas por “caixas” caixas, onde cada operação é tratada em “delta_t” minutos por um caixa, e o escalonamento utiliza a Disciplina de Atendimento representada por {n_1; n_2; n_2; n_4; n_5}, nos termos do que foi definido na página 1 deste enunciado.
@@ -166,7 +178,8 @@ Desenvolver um escalonador de filas que trata de forma diferenciada 5 filas, com
     • void e_rodar (Escalonador *e, char *nome_arq_in, char *nome_arq_out);
         Executar a simulação do atendimento, lendo o arquivo de configuração de nome “nome_arq_in” e escrevendo o resultado do processamento para arquivo de nome “nome_arq_out”.
 
-**Critérios de Avaliação**
+# **Critérios de Avaliação**
+
 A avaliação será realizada em duas fases:
 
     1. Análise do código-fonte;
