@@ -1,10 +1,7 @@
 #ifndef logtree_h
 #define logtree_h
 
-typedef struct _logtree {
-  // Data
-  // TODO
-} Log;
+#include "../Tipos/log.h"
 
 void log_inicializar(Log **l);
 // Inicializa o registrador l.

@@ -1,10 +1,7 @@
 #ifndef fila_fifo_h
 #define fila_fifo_h
 
-typedef struct _fila_FIFO {
-  // Data
-  // TODO
-} Fila_FIFO;
+#include "../Tipos/fila.h"
 
 void f_inicializar(Fila_FIFO **);
 // Inicializa a fila.
