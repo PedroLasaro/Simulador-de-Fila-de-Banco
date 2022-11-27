@@ -1,5 +1,8 @@
 #include "fila_fifo.h"
 
+#include "../Cliente/cliente.h"
+
+
 void f_inicializar(Fila_FIFO **f) { return 1; }
 
 int f_inserir(Fila_FIFO **f, int chave, int valor) { return 0; }
