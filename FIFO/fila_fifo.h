@@ -2,6 +2,7 @@
 #define fila_fifo_h
 
 #include "Tipos/fila.h"
+#include <stdlib.h>
 
 void f_inicializar(Fila_FIFO **);
 // Inicializa a fila.

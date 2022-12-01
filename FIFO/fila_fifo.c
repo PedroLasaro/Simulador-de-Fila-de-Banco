@@ -1,6 +1,16 @@
 #include "fila_fifo.h"
 
-void f_inicializar(Fila_FIFO **f) { return 1; }
+/*Função que inicia a Fila e
+aloca um tipo Fila_FIFO Vazia ao vetor.*/
+void f_inicializar(Fila_FIFO **f) {
+int idx;
+Fila_FIFO *tmp;
+tmp = (Fila_FIFO *)malloc(sizeof(Fila_FIFO));
+tmp->chave = -1; // Vazia
+tmp->cliente = NULL;
+tmp->prox = NULL;
+return;
+}
 
 int f_inserir(Fila_FIFO **f, int chave, int valor) { return 0; }
 
