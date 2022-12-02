@@ -4,15 +4,16 @@
 aloca um tipo Fila_FIFO Vazia ao vetor.*/
 void f_inicializar(Fila_FIFO **f) {
 int idx;
-Fila_FIFO *tmp;
-tmp = (Fila_FIFO *)malloc(sizeof(Fila_FIFO));
-tmp->chave = -1; // Vazia
-tmp->cliente = NULL;
-tmp->prox = NULL;
+Fila_FIFO *novo;
+novo = (Fila_FIFO *)malloc(sizeof(Fila_FIFO));
+novo->primeiro = NULL;
+novo->ultimo = NULL;
 return;
 }
 
-int f_inserir(Fila_FIFO **f, int chave, int valor) { return 0; }
+int f_inserir(Fila_FIFO **f, int chave, int valor) {
+return 0;
+}
 
 int f_obter_proxima_chave(Fila_FIFO **f) { return 0; }
 
