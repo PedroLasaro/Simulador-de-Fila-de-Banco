@@ -1,8 +1,27 @@
 #ifndef fila_fifo_h
 #define fila_fifo_h
 
-#include "Tipos/fila.h"
 #include <stdlib.h>
+
+// Implementação dos tipo
+
+// Nó da fila
+// tipo que armazena os dados da fila
+typedef struct _noh{
+  int chave;
+  int valor;
+  struct _noh *prox;
+} Noh;
+
+// Implementação da fila
+// Ponteiro apontando pra primeira e a ultima posição da fila
+// Inserção na ultima posição e saída na primeira posição
+typedef struct _Fila_FIFO {
+  Noh *primeiro;
+  Noh *ultimo;
+} Fila_FIFO;
+
+// Nota: chave == -1 significa fila vazia
 
 void f_inicializar(Fila_FIFO **);
 // Inicializa a fila.

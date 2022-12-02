@@ -1,5 +1,11 @@
 #include "logtree.h"
 
+// Implementação do Tipo Log
+typedef struct _logtree {
+  // Data
+  // TODO
+} Log;
+
 void log_inicializar(Log **l) { return; }
 
 void log_registrar(Log **l, int conta, int classe, int timer, int caixa) {
