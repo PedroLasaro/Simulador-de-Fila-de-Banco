@@ -4,6 +4,7 @@
 aloca um tipo Fila_FIFO Vazia ao vetor.*/
 void f_inicializar(Fila_FIFO **f) {
   Fila_FIFO *novo;
+  novo->primeiro = null;
   novo = (Fila_FIFO *)malloc(sizeof(Fila_FIFO));
   novo->primeiro = NULL;
   novo->ultimo = NULL;
