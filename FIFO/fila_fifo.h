@@ -7,7 +7,7 @@
 
 // Nó da fila
 // tipo que armazena os dados da fila
-typedef struct _noh{
+typedef struct _noh {
   int chave;
   int valor;
   struct _noh *prox;
