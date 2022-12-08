@@ -4,11 +4,8 @@
 #include "../FIFO/fila_fifo.h"
 
 typedef struct _escalonador {
-  Fila_FIFO Premiun;
-  Fila_FIFO Ouro;
-  Fila_FIFO Prata;
-  Fila_FIFO Bronze;
-  Fila_FIFO Leezu;
+  Fila_FIFO Premiun, Ouro, Prata, Bronze, Leezu;
+  int caixas, deltaT, n1, n2, n3, n4, n5
 } Escalonador;
 
 void e_inicializar(Escalonador *e, int caixas, int delta_t, int n_1, int n_2,

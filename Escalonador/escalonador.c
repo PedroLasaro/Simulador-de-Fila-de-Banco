@@ -1,7 +1,25 @@
 #include "escalonador.h"
 
+#include <stdlib.h>
+
 void e_inicializar(Escalonador *e, int caixas, int delta_t, int n_1, int n_2,
                    int n_3, int n_4, int n_5) {
+  Escalonador *novo;
+  novo = (Escalonador *)malloc(sizeof(Escalonador));
+
+  f_inicializar(&novo->Premiun);
+  f_inicializar(&novo->Ouro);
+  f_inicializar(&novo->Bronze);
+  f_inicializar(&novo->Prata);
+  f_inicializar(&novo->Leezu);
+  novo->caixas = caixas;
+  novo->deltaT = delta_t;
+  novo->n1 = n_1;
+  novo->n2 = n_2;
+  novo->n3 = n_3;
+  novo->n4 = n_4;
+  novo->n5 = n_5;
+
   return;
 }
 
