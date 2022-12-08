@@ -15,10 +15,13 @@ void f_inicializar(Fila_FIFO **f) {
 int f_inserir(Fila_FIFO **f, int chave, int valor) {
   Noh *novo;
   novo = (Noh *)malloc(sizeof(Noh));
+
   if (novo == NULL) return 1;  // erro ao acessar a memoria
+
   novo->chave = chave;
   novo->valor = valor;
   novo->prox = NULL;
+
   if ((*f)->primeiro == NULL) {  // fila Vazia
     // O primeiro e o ultimo apontaram pro mesmo valor
     (*f)->primeiro = novo;
@@ -29,6 +32,7 @@ int f_inserir(Fila_FIFO **f, int chave, int valor) {
     // novo Noh vai ser o ultimo da fila
     (*f)->ultimo = novo;
   }
+
   return 0;
 }
 

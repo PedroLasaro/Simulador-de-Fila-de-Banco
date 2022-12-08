@@ -18,20 +18,22 @@ int lidarCliente(char *linha, Cli *cliente) {
   if (temp == NULL) return 0;
 
   // Este fragmento vai ler a classe
-  for (j = 0, i = 0; linha[i] != ' '; i++, j++) temp[j] = linha[i];
+  for (j = 0; *linha != ' '; *linha++, j++) temp[j] = *linha;
   j++, temp[j + 1] = '\0';
   i = i + 3;
   cliente->classe = Classe(temp);
 
   // Esta fragmento vai ler a conta
-  for (j = 0; linha[i] != ' '; i++) temp[j] = linha[i];
-  for (j = 0; linha[i] != ' '; i++) temp[j] = linha[i];
+  while (*linha != ' ') *linha++;
+  temp = (char *)relloc(temp, 10);
+  for (j = 0; *linha != ' '; *linha++) temp[j] = *linha;
   j++, temp[j + 1] = '\0';
   cliente->conta = atoi(temp);
 
   // este fragmente vai lidar com o numero de operação
-  for (i = i + 2, j = 0; linha[i] != ' '; i++) temp[j] = linha[i];
-  temp[i] = '\0';
+  temp = (char *)relloc(temp, 10);
+  for (j = 0; *linha != ' '; *linha++) temp[j] = *linha;
+  temp[j + 1] = '\0';
   cliente->ops = atoi(temp);
   free(temp);
   return 1;
