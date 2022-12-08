@@ -1,5 +1,7 @@
 #include "fila_fifo.h"
 
+#include <stdlib.h>
+
 /*Função que inicia a Fila e
 aloca um tipo Fila_FIFO Vazia ao vetor.*/
 void f_inicializar(Fila_FIFO **f) {
@@ -11,34 +13,32 @@ void f_inicializar(Fila_FIFO **f) {
 }
 
 int f_inserir(Fila_FIFO **f, int chave, int valor) {
-  Fila_FIFO *fila = f[0];
   Noh *novo;
   novo = (Noh *)malloc(sizeof(Noh));
   if (novo == NULL) return 1;  // erro ao acessar a memoria
   novo->chave = chave;
   novo->valor = valor;
   novo->prox = NULL;
-  if (fila->primeiro == NULL) {  // fila Vazia
+  if ((*f)->primeiro == NULL) {  // fila Vazia
     // O primeiro e o ultimo apontaram pro mesmo valor
-    fila->primeiro = novo;
-    fila->ultimo = novo;
+    (*f)->primeiro = novo;
+    (*f)->ultimo = novo;
   } else {  // Fila nao vazia
     // penúltimo aponta pro novo ultimo
-    fila->ultimo->prox = novo;
+    (*f)->ultimo->prox = novo;
     // novo Noh vai ser o ultimo da fila
-    fila->ultimo = novo;
+    (*f)->ultimo = novo;
   }
   return 0;
 }
 
 int f_obter_proxima_chave(Fila_FIFO **f) {
   int chave;
-  Fila_FIFO *fila = f[0];
-  if (fila->primeiro == NULL) return -1;  // Fila Vazia
-  chave = fila->primeiro->chave;
-  Noh *temp = fila->primeiro;
+  if ((*f)->primeiro == NULL) return -1;  // Fila Vazia
+  chave = (*f)->primeiro->chave;
+  Noh *temp = (*f)->primeiro;
   // fila tem proximo valor
-  if (fila->primeiro->prox != NULL) fila->primeiro = fila->primeiro->prox;
+  if ((*f)->primeiro->prox != NULL) (*f)->primeiro = (*f)->primeiro->prox;
   free(temp);
   return chave;
 }

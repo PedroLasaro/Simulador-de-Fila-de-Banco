@@ -1,8 +1,6 @@
 #ifndef fila_fifo_h
 #define fila_fifo_h
 
-#include <stdlib.h>
-
 // Implementação dos tipo
 
 // Nó da fila
