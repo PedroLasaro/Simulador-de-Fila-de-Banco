@@ -10,11 +10,11 @@ typedef struct _escalonador {
 
 void e_inicializar(Escalonador *e, int caixas, int delta_t, int n_1, int n_2,
                    int n_3, int n_4, int n_5);
-//   Inicializa o escalonador, alocando e inicializando as 5 filas, que serão
-//   atendidas por “caixas” caixas, onde cada operação é tratada em “delta_t”
-//   minutos por um caixa, e o escalonamento utiliza a Disciplina de Atendimento
-//   representada por {n_1; n_2; n_2; n_4; n_5}, nos termos do que foi definido
-//   na página 1 deste enunciado.
+//    Inicializa o escalonador, alocando e inicializando as 5 filas, que serão
+//    atendidas por “caixas” caixas, onde cada operação é tratada em “delta_t”
+//    minutos por um caixa, e o escalonamento utiliza a Disciplina de
+//    Atendimento representada por {n_1; n_2; n_2; n_4; n_5}, nos termos do que
+//    foi definido na página 1 deste enunciado.
 
 int e_inserir_por_fila(Escalonador *e, int classe, int num_conta,
                        int qtde_operacoes);
