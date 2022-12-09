@@ -43,5 +43,6 @@ int *pegarVetorNumerico(char *linha) {
     }
     *linha++;
   }
+  free(numero);
   return vector;
 }
