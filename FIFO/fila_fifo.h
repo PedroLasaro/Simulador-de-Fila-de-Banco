@@ -5,18 +5,17 @@
 
 // Nó da fila
 // tipo que armazena os dados da fila
-typedef struct _noh {
-  int chave;
-  int valor;
-  struct _noh *prox;
+typedef struct noh {
+  int chave, valor;
+  struct noh *prox;
 } Noh;
 
 // Implementação da fila
 // Ponteiro apontando pra primeira e a ultima posição da fila
 // Inserção na ultima posição e saída na primeira posição
-typedef struct _Fila_FIFO {
-  Noh *primeiro;
-  Noh *ultimo;
+typedef struct fila_fifo {
+  int tam;
+  Noh *inicio, *fim;
 } Fila_FIFO;
 
 // Nota: chave == -1 significa fila vazia
