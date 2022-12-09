@@ -8,6 +8,7 @@ void f_inicializar(Fila_FIFO **f) { *f = NULL; }
 // funcao para inserir na fila
 int f_inserir(Fila_FIFO **f, int chave, int valor) {
   // inicializando o noh a ser inserido
+  Noh *p;
   Noh *novo = (Noh *)malloc(sizeof(Noh));
   if (novo == NULL) return 0;  // falta de memoria
 
@@ -29,7 +30,7 @@ int f_inserir(Fila_FIFO **f, int chave, int valor) {
   }
 
   // percorro a fila para ver se ha alguma chave com o mesmo valor do parametro
-  for (Noh *p = (*f)->inicio; p != NULL; p = p->prox)
+  for (p = (*f)->inicio; p != NULL; p = p->prox)
     if (p->chave == chave) return 0;  // duplicacao de chave
 
   // se nao houver, adiciono o noh na fila e atualizo o tamanho da mesma
@@ -83,6 +84,7 @@ int f_num_elementos(Fila_FIFO **f) {
 
 // funcao para consultar a chave em sua posicao
 int f_consultar_chave_por_posicao(Fila_FIFO **f, int posicao) {
+  Noh *p;
   // inicializo a variavel da posicao como 1
   int i = 1;
 
@@ -90,7 +92,7 @@ int f_consultar_chave_por_posicao(Fila_FIFO **f, int posicao) {
   if (posicao > (*f)->tam || posicao < 1) return -1;
 
   // percorro a fila para encontrar a posicao
-  for (Noh *p = (*f)->inicio; p != NULL; p = p->prox, ++i) {
+  for (p = (*f)->inicio; p != NULL; p = p->prox, ++i) {
     if (i == posicao) return p->chave;
     // retorno a chave quando a posicao for encontrada
   }
@@ -100,6 +102,7 @@ int f_consultar_chave_por_posicao(Fila_FIFO **f, int posicao) {
 
 // funcao para consultar o valor em sua posicao
 int f_consultar_valor_por_posicao(Fila_FIFO **f, int posicao) {
+  Noh *p;
   // inicializo a variavel da posicao como 1
   int i = 1;
 
@@ -107,7 +110,7 @@ int f_consultar_valor_por_posicao(Fila_FIFO **f, int posicao) {
   if (posicao > (*f)->tam || posicao < 1) return -1;
 
   // percorro a fila para encontrar a posicao
-  for (Noh *p = (*f)->inicio; p != NULL; p = p->prox, ++i) {
+  for (p = (*f)->inicio; p != NULL; p = p->prox, ++i) {
     if (i == posicao) return p->valor;
     // retorno o valor quando a posicao for encontrada
   }
