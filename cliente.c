@@ -1,6 +1,9 @@
 #include "cliente.h"
 
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 int Classe(char *Classe) {
   if (strcmp("Premiun", Classe) == 0) return 1;
@@ -25,13 +28,13 @@ int lidarCliente(char *linha, Cli *cliente) {
 
   // Esta fragmento vai ler a conta
   while (*linha != ' ') *linha++;
-  temp = (char *)relloc(temp, 10);
+  temp = (char *)realloc(temp, 10);
   for (j = 0; *linha != ' '; *linha++) temp[j] = *linha;
   j++, temp[j + 1] = '\0';
   cliente->conta = atoi(temp);
 
   // este fragmente vai lidar com o numero de operação
-  temp = (char *)relloc(temp, 10);
+  temp = (char *)realloc(temp, 10);
   for (j = 0; *linha != ' '; *linha++) temp[j] = *linha;
   temp[j + 1] = '\0';
   cliente->ops = atoi(temp);

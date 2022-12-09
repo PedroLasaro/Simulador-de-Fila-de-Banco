@@ -76,7 +76,7 @@ int e_conf_por_arquivo(Escalonador *e, char *nome_arq_conf) {
     } else if (idx == 2) {
       delta = pegarNumero(linha);
     } else if (idx == 3) {
-      n = pegaeVetorNumerico(linha);
+      n = pegarVetorNumerico(linha);
       e_inicializar(e, caixas, delta, n[0], n[1], n[2], n[3], n[4]);
     }
   }

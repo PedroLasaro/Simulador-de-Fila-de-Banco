@@ -1,7 +1,7 @@
-ALL: Escalonador
+ALL: main
 
-Escalonador: escalonador.o cliente.o fila_fifo.o leitor.o logtree.o
-	gcc escalonador.o cliente.o fila_fifo.o leitor.o logtree.o -o escalonador
+main: escalonador.o cliente.o fila_fifo.o leitor.o logtree.o
+	gcc escalonador.o cliente.o fila_fifo.o leitor.o logtree.o -o main
 
 escalonador.o: escalonador.c escalonador.h cliente.h fila_fifo.h leitor.h logtree.h
 	gcc -c escalonador.c
