@@ -26,10 +26,10 @@ int pegarNumero(char *linha) {
   return atoi(numero);
 }
 
-int **pegarVetorNumerico(char *linha) {
+int *pegarVetorNumerico(char *linha, int *vector) {
   char *numero;
   numero = (char *)malloc(sizeof(char) * 10);
-  int vector[5], i = 0;
+  int i = 0;
   percorrar(linha, '{');
   while (*linha != '\n') {
     while (*linha != ',' || *linha != '}') {

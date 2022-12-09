@@ -9,7 +9,7 @@ typedef struct _caixa {
 } Caixas;
 
 typedef struct _escalonador {
-  Fila_FIFO filas[5];
+  Fila_FIFO *filas[5];
   Caixas *caixas;
   int ordem[5];
   int qntdcaixas, deltaT, atual, totalClientes;

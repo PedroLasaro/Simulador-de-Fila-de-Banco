@@ -3,6 +3,6 @@
 
 int pegarNumero(char *);
 
-int **pegarVetorNumerico(char *);
+int *pegarVetorNumerico(char *, int *);
 
 #endif  // !leitor

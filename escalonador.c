@@ -107,7 +107,7 @@ int e_conf_por_arquivo(Escalonador *e, char *nome_arq_conf) {
     } else if (idx == 2) {
       delta = pegarNumero(linha);
     } else if (idx == 3) {
-      n = pegarVetorNumerico(linha);
+      n = pegarVetorNumerico(linha, n);
       e_inicializar(e, caixas, delta, n[0], n[1], n[2], n[3], n[4]);
     }
   }
@@ -121,9 +121,9 @@ int e_conf_por_arquivo(Escalonador *e, char *nome_arq_conf) {
 }
 
 void e_rodar(Escalonador *e, char *nome_arq_in, char *nome_arq_out) {
-  int tempo, i, ops, conta, clientes, tempoTotal;
-  Log *l;
-  log_inicializar(&l);
+  int tempo, idx, ops, conta, clientes, tempoTotal;
+  Log *log;
+  log_inicializar(&log);
   FILE *arq_out;
 
   e_conf_por_arquivo(e, nome_arq_in);
@@ -131,31 +131,29 @@ void e_rodar(Escalonador *e, char *nome_arq_in, char *nome_arq_out) {
 
   arq_out = fopen(nome_arq_out, "wt");
   if (arq_out == NULL) return;
-
-  i, tempo, tempoTotal = 0;
+  idx, tempo, tempoTotal = 0;
   while (clientes > 0) {
-    if (e->caixas[i].tempo == tempo) {
+    if (e->caixas[idx].tempo == tempo) {
       clientes--;
-      e->caixas[i].qntdClientes++;
-      e->caixas[i].tempo += e_consultar_tempo_prox_cliente(e);
+      e->caixas[idx].qntdClientes++;
+      e->caixas[idx].tempo += e_consultar_tempo_prox_cliente(e);
 
       ops = e_consultar_prox_qtde_oper(e);
       conta = e_obter_prox_num_conta(e);
 
-      log_registrar(l, conta, e->atual + 1, tempo, i + 1);
-      o_tempo_cliente(tempo, i + 1, e->atual + 1, conta, ops, arq_out);
+      log_registrar(&log, conta, e->atual + 1, tempo, idx + 1);
+      o_tempo_cliente(tempo, idx + 1, e->atual + 1, conta, ops, arq_out);
     }
-    i = (i + 1) % e->qntdcaixas;
-    if (i == 0) tempo++;
+    idx = (idx + 1) % e->qntdcaixas;
+    if (idx == 0) tempo++;
   }
 
-  for (i = 0; i < e->qntdcaixas; i++) {
+  for (idx = 0; idx < e->qntdcaixas; idx++) {
     tempoTotal =
-        (e->caixas[i].tempo > tempoTotal) ? e->caixas[i].tempo : tempoTotal;
+        (e->caixas[idx].tempo > tempoTotal) ? e->caixas[idx].tempo : tempoTotal;
   }
-
   o_tempo_total(tempoTotal, arq_out);
-  o_tempo_classe(l, arq_out);
+  o_tempo_classe(log, arq_out);
   o_caixas(e->caixas, e->qntdcaixas, arq_out);
 
   fclose(arq_out);
