@@ -7,6 +7,7 @@
 #include "fila_fifo.h"
 #include "leitor.h"
 #include "logtree.h"
+#include "tempo.h"
 
 void e_inicializar(Escalonador *e, int caixas, int delta_t, int n_1, int n_2,
                    int n_3, int n_4, int n_5) {
@@ -124,13 +125,11 @@ void e_rodar(Escalonador *e, char *nome_arq_in, char *nome_arq_out) {
   int tempo, idx, ops, conta, clientes, tempoTotal;
   Log *log;
   log_inicializar(&log);
-  FILE *arq_out;
-
+  FILE *saida;
   e_conf_por_arquivo(e, nome_arq_in);
   clientes = e_consultar_qtde_clientes(e);
-
-  arq_out = fopen(nome_arq_out, "wt");
-  if (arq_out == NULL) return;
+  saida = fopen(nome_arq_out, "wt");
+  if (saida == NULL) return;
   idx, tempo, tempoTotal = 0;
   while (clientes > 0) {
     if (e->caixas[idx].tempo == tempo) {
@@ -142,19 +141,19 @@ void e_rodar(Escalonador *e, char *nome_arq_in, char *nome_arq_out) {
       conta = e_obter_prox_num_conta(e);
 
       log_registrar(&log, conta, e->atual + 1, tempo, idx + 1);
-      o_tempo_cliente(tempo, idx + 1, e->atual + 1, conta, ops, arq_out);
+      saidaTempoDosCliente(tempo, idx + 1, e->atual + 1, conta, ops, saida);
     }
     idx = (idx + 1) % e->qntdcaixas;
     if (idx == 0) tempo++;
   }
 
-  for (idx = 0; idx < e->qntdcaixas; idx++) {
+  for (idx = 0; idx < e->qntdcaixas; idx++)
     tempoTotal =
         (e->caixas[idx].tempo > tempoTotal) ? e->caixas[idx].tempo : tempoTotal;
-  }
-  o_tempo_total(tempoTotal, arq_out);
-  o_tempo_classe(log, arq_out);
-  o_caixas(e->caixas, e->qntdcaixas, arq_out);
 
-  fclose(arq_out);
+  saidaTempoTotal(tempoTotal, saida);
+  saidaTempoDasClasse(log, saida);
+  saidaTempoDasCaixas(e->caixas, e->qntdcaixas, saida);
+
+  fclose(saida);
 }
