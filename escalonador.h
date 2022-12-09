@@ -3,9 +3,16 @@
 
 #include "fila_fifo.h"
 
+typedef struct _caixa {
+  int tempo;
+  int qntdClientes;
+} Caixas;
+
 typedef struct _escalonador {
-  Fila_FIFO Premiun, Ouro, Prata, Bronze, Leezu;
-  int caixas, deltaT, n1, n2, n3, n4, n5;
+  Fila_FIFO filas[5];
+  Caixas *caixas;
+  int ordem[5];
+  int qntdcaixas, deltaT, atual, totalClientes;
 } Escalonador;
 
 void e_inicializar(Escalonador *e, int caixas, int delta_t, int n_1, int n_2,
