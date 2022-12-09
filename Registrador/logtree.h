@@ -3,8 +3,12 @@
 
 // Implementação do Tipo Log
 typedef struct _logtree {
-  // Data
-  // TODO
+  int conta;
+  int classe;
+  int timer;
+  int caixa;
+  struct _logtree *esquerda;
+  struct _logtree *direita;
 } Log;
 
 void log_inicializar(Log **l);
